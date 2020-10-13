@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AddGrocery from './components/AddGrocery.jsx';
 import GroceryList from './components/GroceryList.jsx';
-import groceryList from '../../database/data.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +11,6 @@ class App extends React.Component {
     }
   }
 
-  
   render (){
     return (
       <div>
@@ -22,7 +20,7 @@ class App extends React.Component {
             <AddGrocery />
           </div>
           <div className="groceryListContainer">
-            <GroceryList items={groceryList}/>
+            <GroceryList />
           </div> 
       </div>
     )

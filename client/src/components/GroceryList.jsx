@@ -1,8 +1,9 @@
 import React from 'react';
+var items = require('../../../database/data.js');
 
 const GroceryList = (props) => (
   <div className="groceries">
-     {props.items.map(element=>(<p>element.description</p>)) //get back to this spot };
+    {items.groceryList.map(item=>(<p>{item.description} {item.quantity}</p>))}; 
   </div>
 )
 
