@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AddGrocery from './components/AddGrocery.jsx';
+import GroceryList from './components/GroceryList.jsx';
+import groceryList from '../../database/data.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -10,8 +13,19 @@ class App extends React.Component {
   }
 
   
-  render () {
-    return null;
+  render (){
+    return (
+      <div>
+      <div className='groceryApp'></div>
+        <h1>Grocery List</h1>
+          <div className='addGroceryContainer'>
+            <AddGrocery />
+          </div>
+          <div className="groceryListContainer">
+            <GroceryList items={groceryList}/>
+          </div> 
+      </div>
+    )
   }
 }
 
