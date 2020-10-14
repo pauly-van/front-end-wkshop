@@ -1,9 +1,11 @@
 import React from 'react';
-var items = require('../../../database/data.js');
+import GroceryItem from './GroceryItem.jsx';
 
 const GroceryList = (props) => (
   <div className="groceries">
-    {items.groceryList.map(item=>(<p>{item.description} {item.quantity}</p>))}; 
+    <div className="groceryItems">
+      {(<GroceryItem item={props.data}/>)}
+    </div>
   </div>
 )
 
