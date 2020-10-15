@@ -1,10 +1,24 @@
 import React from 'react';
 import GroceryItem from './GroceryItem.jsx';
 
-const GroceryList = (props) => (
-  <div className="groceries">
-    {props.data.map(elem=>(<GroceryItem item={elem} />))}
-  </div>
-)
+export default class GroceryList extends React.Component{
+  constructor(props){
+    super(props);
+    this.props = props;
+    this.state = {
 
-export default GroceryList;
+    }
+  }
+
+  removeStriked(descript){
+    console.log(descript);
+  }
+
+  render() {
+    return(
+      <div className="groceries">
+        {this.props.data.map(elem=>(<GroceryItem item={elem} removeStriked={this.removeStriked.bind(this)} />))}
+      </div>
+    )
+  }
+}
