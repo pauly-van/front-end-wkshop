@@ -24,6 +24,7 @@ class AddGrocery extends React.Component {
 
   addToData() {
     this.state.id = data.groceryList.length+1;
+    this.state.description = this.state.description.toLowerCase();
     this.props.update(this.state); 
   }
 

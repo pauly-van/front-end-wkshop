@@ -13,8 +13,19 @@ class App extends React.Component {
   }
 
   updateList (addgroc){
-    data.groceryList.push(addgroc);
-    alert(JSON.stringify(data.groceryList));
+    let hasItem = data.groceryList.some(item=>item.description===addgroc.description);
+
+    if(hasItem){
+      data.groceryList.forEach(item=>{
+        if(item.description===addgroc.description){
+          item.quantity+=Number.parseInt(addgroc.quantity);
+        }
+      });
+    }else{
+      data.groceryList.push(addgroc);
+    }
+
+    console.log(data.groceryList);
     this.setState({
       list: data.groceryList
     }) 
