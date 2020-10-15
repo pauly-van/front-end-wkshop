@@ -1,10 +1,29 @@
 import React from 'react';
-import AddGrocery from './AddGrocery.jsx'
 
-const GroceryItem = (props) => (
-  <div>
-    {props.item.map(elem=>(<p>{elem.description} {elem.quantity}</p>))} 
-  </div>
-)
+export default class GroceryItem extends React.Component{
+  constructor(props){
+    super(props);
+    this.props = props;
+    this.state = {
+      striked: false
+    }
+  }
 
-export default GroceryItem;
+  onItemClick(event){
+    this.setState({
+      striked: !this.state.striked 
+    });
+  }
+
+  render(){
+    let style = {
+      textDecoration: this.state.striked ? 'line-through' : 'none'
+    };
+
+    return (
+      <div>
+        <p style={style} onClick={this.onItemClick.bind(this)}>{this.props.item.description} {this.props.item.quantity}</p> 
+      </div>
+    )
+  }
+}

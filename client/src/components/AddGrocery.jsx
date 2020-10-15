@@ -19,12 +19,12 @@ class AddGrocery extends React.Component {
       this.setState({
         [target.name]: target.value
       });
-      console.log(target.name, target.value);
   }
 
   addToData() {
     this.state.id = data.groceryList.length+1;
     this.state.description = this.state.description.toLowerCase();
+    this.state.quantity = Number.parseInt(this.state.quantity);
     this.props.update(this.state); 
   }
 

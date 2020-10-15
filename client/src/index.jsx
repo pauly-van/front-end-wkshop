@@ -25,7 +25,6 @@ class App extends React.Component {
       data.groceryList.push(addgroc);
     }
 
-    console.log(data.groceryList);
     this.setState({
       list: data.groceryList
     }) 
