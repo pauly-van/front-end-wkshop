@@ -5,15 +5,15 @@ export default class GroceryItem extends React.Component{
     super(props);
     this.props = props;
     this.state = {
-      striked: false
+      striked: false,
     }
   }
 
   onItemClick(event){
     this.setState({
-      striked: !this.state.striked 
+      striked: !this.state.striked
     });
-    this.props.removeStriked(event.target.id);
+    this.props.removeStriked(event);
   }
 
   render(){
@@ -23,7 +23,7 @@ export default class GroceryItem extends React.Component{
 
     return (
       <div>
-        <p style={style} id={this.props.item.description} onClick={this.onItemClick.bind(this)}>{this.props.item.description} {this.props.item.quantity}</p> 
+        <p style={style} id={this.props.item.description} onClick={this.onItemClick.bind(this)} >{this.props.item.description} {this.props.item.quantity}</p> 
       </div>
     )
   }

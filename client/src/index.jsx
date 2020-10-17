@@ -29,6 +29,13 @@ class App extends React.Component {
       list: data.groceryList
     }) 
   }
+  removeStriked(event){
+    for(let i = 0;i<data.groceryList.length;i++){
+      if(data.groceryList[i].description===event.target.id){
+        data.groceryList.splice(i, 1);
+      }
+    }
+  }
 
   render (){
     return (
@@ -39,7 +46,7 @@ class App extends React.Component {
             <AddGrocery update={this.updateList.bind(this)} />
           </div>
           <div className="groceryListContainer">
-            <GroceryList data={this.state.list} />
+            <GroceryList data={this.state.list} removeStriked={this.removeStriked.bind(this)} />
           </div> 
       </div>
     )

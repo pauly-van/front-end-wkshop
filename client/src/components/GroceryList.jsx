@@ -1,24 +1,10 @@
 import React from 'react';
 import GroceryItem from './GroceryItem.jsx';
 
-export default class GroceryList extends React.Component{
-  constructor(props){
-    super(props);
-    this.props = props;
-    this.state = {
-
-    }
-  }
-
-  removeStriked(descript){
-    console.log(descript);
-  }
-
-  render() {
-    return(
+const GroceryList=(props)=>(
       <div className="groceries">
-        {this.props.data.map(elem=>(<GroceryItem item={elem} removeStriked={this.removeStriked.bind(this)} />))}
+        {props.data.map(elem=>(<GroceryItem item={elem} removeStriked={props.removeStriked} />))}
       </div>
-    )
-  }
-}
+)
+
+export default GroceryList;
